@@ -1,0 +1,154 @@
+@import "vars";
+@import "settings";
+@import "mixins";
+// vendor
+@import "bower_components/foundation/scss/normalize.scss";
+@import "bower_components/foundation/scss/foundation.scss";
+
+
+// custom
+html {
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Source Code Pro', monospace;
+}
+::selection {
+    background: $red;
+    text-shadow: none;
+}
+
+header, footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+header {
+    top: 0;
+}
+footer {
+    bottom: 0;
+}
+h1 {
+    font-size: rem-calc(14);
+    letter-spacing: rem-calc(4);
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+footer p {
+    font-size: rem-calc(14);
+    opacity: 0.25;
+    // margin-bottom: 0;
+}
+
+.main {
+    padding-top: 20%;
+}
+
+
+%base {
+    height: rem-calc(200);
+    width: rem-calc(200);
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+    p {
+        margin-bottom: 0;
+        display: table-cell;
+        vertical-align: middle;
+        color: $white;
+        font-size: rem-calc(69);
+    }
+}
+
+// method 1
+// good for single element
+// ----------------------------------------
+.method-1 {
+    @extend %base;
+    p {
+        background-color: silver;
+        will-change: transform;
+        transition: transform 0.3s ease;
+        transform: perspective(600px) rotateX(45deg);
+        &:hover {
+            // transform: rotateX(180deg);
+            transform: rotateX(0deg);
+        }
+    }
+}
+// methodd 2
+// best when applying 3d transform to many elements
+// ----------------------------------------
+.method-2 {
+    @extend %base;
+    perspective: 600px;
+    // perspective: 100px;
+    // transition: perspective 0.3s ease;
+    // &:hover {
+    //     perspective: 600px;
+    // }
+    p {
+        background-color: tomato;
+        transform: rotateX(45deg);
+        transition: transform 0.3s ease;
+        &:hover {
+            transform: rotateX(0deg);
+        }
+    }
+}
+
+
+
+
+// animation
+// ----------------------------------------
+@keyframes boob-poop {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(-360deg);
+    }
+}
+
+.boob-poop {
+    @extend %base;
+    perspective: 420px;
+    p {
+        // background-color: skyblue;
+        font-family: 'Source Code Pro';
+        color: $black;
+        animation-name: boob-poop;
+        animation-duration: 4s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        // transform: rotateX(45deg);
+        // transition: transform 0.3s ease;
+        // &:hover {
+        //     transform: rotateX(0deg);
+        // }
+    }
+}
+
+
+a {
+    text-transform: uppercase;
+    font-size: rem-calc(14);
+    letter-spacing: rem-calc(3);
+}
+.inspiration {
+    font-size: rem-calc(12);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.hgroup.one {
+    h1 {
+        display: inline-block;
+        margin-right: rem-calc(15);
+        font-weight: bold;
+    }
+}

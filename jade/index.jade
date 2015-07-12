@@ -1,0 +1,39 @@
+doctype html
+html(lang="en").no-js
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    title 20150712
+    meta(name="description", content="boob/poop")
+    include _head.jade
+
+  body
+    a(href="#main").show-for-sr Skip to main content
+    .container
+      header.header
+        .row
+          .columns
+            .hgroup.one
+              h1 20150712
+              a.inspiration(
+                href="http://kai-tuju.tumblr.com/post/94072694451/3d-printing-is-being-used-to-print-organs",
+                target="_blank"
+                ) [Inspiration]
+
+      main#main.main
+        .row
+          .columns.medium-4.medium-centered
+            //- .test.method-1
+              p test
+            //- .test.method-2
+              p test
+                img(src="images/freedom.jpg", alt="")
+            .boob-poop
+              p boob
+
+      footer.footer
+        .row
+          .columns
+            p &phi;
+
+    include _scripts.jade
